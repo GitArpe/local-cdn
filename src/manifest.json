@@ -1,40 +1,36 @@
 {
-  "name": "Local CDN",
-  "short_name": "ilclcdn",
-  "description": "Local emulation of Content Delivery Networks",
-  "author": "James Fray",
-  "version": "0.1.2",
-  "manifest_version": 2,
-  "permissions": [
-    "storage",
-    "tabs",
-    "notifications",
-    "webRequest",
-    "webRequestBlocking",
-    "<all_urls>"
+	"name": "Local CDN Beta/Dev",
+	"short_name": "local-cdn",
+	"description": "Local emulation of Content Delivery Networks, performance optimized for Chrome Beta and Dev Channel.",
+	"author": "James Fray, Jacob Groß",
+	"version": "1.0",
+	"manifest_version": 2,
+	"permissions": [
+    "declarativeWebRequest",
+    "*://*/*"
   ],
-  "homepage_url": "http://add0n.com/local-cdn.html",
-  "icons": {
-    "16": "data/icons/16.png",
-    "32": "data/icons/32.png",
-    "48": "data/icons/48.png",
-    "128": "data/icons/128.png"
-  },
-  "background": {
-    "scripts": [
+	"homepage_url": "http://add0n.com/local-cdn.html",
+	"icons": {
+		"16": "data/icons/16.png",
+		"32": "data/icons/32.png",
+		"48": "data/icons/48.png",
+		"128": "data/icons/128.png"
+	},
+	"background": {
+		"scripts": [
       "resources.js",
-      "validate.js",
-      "common.js"
-    ]
-  },
-  "web_accessible_resources": [
+      "common-dec.js"
+    ],
+		"persistent": false
+	},
+	"web_accessible_resources": [
     "data/resources/*"
   ],
-  "browser_action": {
-    "default_icon": {
-      "16": "data/icons/16.png",
-      "32": "data/icons/32.png",
-      "64": "data/icons/64.png"
-    }
-  }
+	"browser_action": {
+		"default_icon": {
+			"16": "data/icons/16.png",
+			"32": "data/icons/32.png",
+			"64": "data/icons/64.png"
+		}
+	}
 }
