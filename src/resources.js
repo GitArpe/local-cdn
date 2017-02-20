@@ -252,8 +252,5 @@ var resources = {
 			'jquery/vrsn/jquery.min.js': 'jquery/3.1.1/jquery.min.js.dec',
 			'angularjs/vrsn/angular.': 'angularjs/vrsn/angular.min.js.dec'
 		}
-	},
-
-	'jquery.min.js': 'jquery/3.1.1/jquery.min.js.dec',
-	'jquery.js': 'jquery/3.1.1/jquery.min.js.dec'
+	}
 }
