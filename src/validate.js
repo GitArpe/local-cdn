@@ -1,8 +1,8 @@
-'use strict';
+'use strict'
 
-var validate = (function (paths) {
-  return (path) => paths.indexOf(path.replace('resources/', '')) !== -1;
-})([
+var validate = (function(paths) {
+	return path => paths.indexOf(path.replace('resources/', '')) !== -1
+}([
   'angularjs/1.0.1/angular.min.js.dec',
   'angularjs/1.0.2/angular.min.js.dec',
   'angularjs/1.0.3/angular.min.js.dec',
@@ -222,4 +222,4 @@ var validate = (function (paths) {
   'webfont/1.5.2/webfont.js.dec',
   'webfont/1.5.3/webfont.js.dec',
   'webfont/1.5.6/webfont.js.dec'
-]);
+]))

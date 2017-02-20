@@ -1,131 +1,79 @@
 /* globals validate, resources */
-'use strict';
 
-var app = {};
-app.callbacks = {};
-app.on = (id, callback) => {
-  app.callbacks[id] = app.callbacks[id] || [];
-  app.callbacks[id].push(callback);
-};
-app.emit = (id, value) => (app.callbacks[id] || []).forEach(c => c(value));
-
-var cache = {};
+'use strict'
 
 var filters = Object.keys(resources)
-  .map(host => Object.keys(resources[host]).map(path => host + path))
-  .reduce((a, b) => a.concat(b))
-  .map(url => '*://' + url + '*');
+	.map(host => Object.keys(resources[host])
+		.map(path => host + path))
+	.reduce((a, b) => a.concat(b))
+	.map(url => '*://' + url + '*')
 
-function flattenObject (ob) {
-  let toReturn = {};
+function flattenObject(ob) {
+	var toReturn = Object.create(null)
 
-  for (let i in ob) {
-    if (!ob.hasOwnProperty(i)) {
-      continue;
-    }
-    if ((typeof ob[i]) === 'object') {
-      let flatObject = flattenObject(ob[i]);
-      for (let x in flatObject) {
-        if (!flatObject.hasOwnProperty(x)) {
-          continue;
-        }
-        toReturn[i + '' + x] = flatObject[x];
-      }
-    }
-    else {
-      toReturn[i] = ob[i];
-    }
-  }
-  return toReturn;
+	for (var i in ob) {
+		if (typeof ob[i] === 'object') {
+			var flatObject = flattenObject(ob[i])
+			for (var x in flatObject) {
+				toReturn[i + x] = flatObject[x]
+			}
+		} else {
+			toReturn[i] = ob[i]
+		}
+	}
+
+	return toReturn
 }
 
-chrome.webRequest.onBeforeRequest.addListener(d => {
-  let {pathname, hostname} = new URL(d.url);
-  let obj = resources[hostname];
-  if (obj) {
-    let list = flattenObject(obj);
-    let matches = Object.keys(list).filter(str => {
-      str = str.replace(/[-[\]{}()*+?.,\\^$|#\s\/]/g, '\\$&');
-      str = str.replace(/vrsn/g, '(?:\\d{1,2}\\.){1,3}\\d{1,2}');
-      return (new RegExp(str)).test(d.url);
-    });
-    if (matches.length) {
-      let version = /(?:\d{1,2}\.){1,3}\d{1,2}/.exec(d.url)[0];
-      let path = list[matches[0]].replace(/vrsn/g, version);
+var regex1 = /[-[\]{}()*+?.,\\^$|#\s\/]/g,
+	regex2 = /vrsn/g,
+	regex3 = /(?:\d{1,2}\.){1,3}\d{1,2}/
 
-      if (validate(path)) {
-        let redirectUrl = chrome.runtime.getURL('data/resources/' + path);
+var listsMap = new Map(),
+	matchesMap = new Map(),
+	url = chrome.runtime.getURL('data/resources/')
 
-        if (cache[d.tabId]) {
-          cache[d.tabId].push({
-            hostname: hostname,
-            pathname: pathname
-          });
-          app.emit('update-badge', d.tabId);
-        }
-        else {
-          console.error('resource is redirected but no tab is found');
-        }
+function callback(data) {
+	var hostname = new URL(data.url)
+		.hostname,
+		obj = null,
+		list = null,
+		matches = null
 
-        return {
-          redirectUrl
-        };
-      }
-      else {
-        console.log('cannot find', d.url);
-      }
-    }
-  }
-  else {
-    console.log('resources of', hostname, 'not found');
-  }
-}, {
-    urls: filters,
-    types: ['script', 'xmlhttprequest']
-  },
-  ['blocking']
-);
+	if (listsMap.has(hostname)) {
+		list = listsMap.get(hostname)
+		matches = matchesMap.get(hostname)
+	} else {
+		obj = resources[hostname]
+		if (!obj) return data
 
-// resetting toolbar badge
-chrome.webRequest.onBeforeRequest.addListener(d => {
-  if (cache[d.tabId]) {
-    cache[d.tabId] = [];
-    app.emit('update-badge', d.tabId);
-  }
-}, {
-  urls: ['<all_urls>'],
-  types: ['main_frame']
-}, []);
+		list = flattenObject(obj)
+		matches = Object.keys(list)
+			.filter((str) => {
+				str = str.replace(regex1, '\\$&')
+				str = str.replace(regex2, '(?:\\d{1,2}\\.){1,3}\\d{1,2}')
+				return (new RegExp(str))
+					.test(data.url)
+			})
+		listsMap.set(hostname, list)
+		matchesMap.set(hostname, matches)
+	}
 
-// badge
-chrome.tabs.query({}, tabs => tabs.forEach(t => cache[t.id] = []));
-app.on('update-badge', (tabId) => {
-  if (!cache[tabId]) {
-    return;
-  }
-  chrome.browserAction.setBadgeText({
-    tabId,
-    text: (cache[tabId].length || '') + ''
-  });
-  let title = cache[tabId].map((o, i) => (i + 1) + '. ' + o.hostname + ' -> ' + o.pathname.split('/').pop()).join('\n');
-  title = 'Local CDN' + (title ? '\n\n' + title : '');
-  chrome.browserAction.setTitle({
-    tabId,
-    title
-  });
-});
-chrome.tabs.onCreated.addListener((tab) => cache[tab.id] = []);
-// cleanup
-chrome.tabs.onRemoved.addListener((tabId) => delete cache[tabId]);
-// FAQs
-chrome.storage.local.get('version', (obj) => {
-  let version = chrome.runtime.getManifest().version;
-  if (obj.version !== version) {
-    chrome.storage.local.set({version}, () => {
-      chrome.tabs.create({
-        url: 'http://add0n.com/local-cdn.html?version=' + version + '&type=' +
-          (obj.version ? ('upgrade&p=' + obj.version) : 'install')
-      });
-    });
-  }
-});
+	if (matches.length) {
+		var version = regex3.exec(data.url)[0]
+		var path = list[matches[0]].replace(regex2, version)
+
+		if (validate(path)) {
+			return {
+				redirectUrl: url + path
+			}
+		}
+	}
+
+	return data
+}
+
+chrome.webRequest.onBeforeRequest.addListener(callback, {
+	urls: filters,
+	types: ['script', 'xmlhttprequest']
+}, ['blocking'])

@@ -1,0 +1,38 @@
+{
+	"name": "Local CDN Beta/Dev",
+	"short_name": "local-cdn",
+	"description": "Local emulation of Content Delivery Networks, performance optimized for Chrome Beta and Dev Channel.",
+	"author": "James Fray, Jacob Groß",
+	"version": "1.0",
+	"manifest_version": 2,
+	"permissions": [
+    "webRequest",
+    "webRequestBlocking",
+    "<all_urls>"
+  ],
+	"homepage_url": "http://add0n.com/local-cdn.html",
+	"icons": {
+		"16": "data/icons/16.png",
+		"32": "data/icons/32.png",
+		"48": "data/icons/48.png",
+		"128": "data/icons/128.png"
+	},
+	"background": {
+		"scripts": [
+      "resources.js",
+      "validate.js",
+      "common.js"
+    ],
+		"persistent": true
+	},
+	"web_accessible_resources": [
+    "data/resources/*"
+  ],
+	"browser_action": {
+		"default_icon": {
+			"16": "data/icons/16.png",
+			"32": "data/icons/32.png",
+			"64": "data/icons/64.png"
+		}
+	}
+}
