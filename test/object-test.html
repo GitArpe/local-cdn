@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<title>Chrome API Test</title>
+</head>
+<body>
+	<script>
+		chrome.runtime.getURL = s => s
+		chrome.webRequest = {}
+		chrome.webRequest.onBeforeRequest = {}
+		chrome.webRequest.onBeforeRequest.addListener = function() {}
+	</script>
+	<script src="../src/resources.js"></script>
+	<script src="../src/validate.js"></script>
+	<script src="../src/common.js"></script>
+	<script src="test.js"></script>
+</body>
+</html>
