@@ -27,11 +27,13 @@ chrome.runtime.onInstalled.addListener(function() {
 	var filters = flattenObject(resources),
 		url = chrome.runtime.getURL('data/resources/'),
 		keys = Object.keys(filters),
-		rules = new Array(keys.length),
+		len = keys.length,
+		rules = new Array(len),
 		regex1 = /vrsn/g
 
-	for (var i = 0; i < keys.length; i++) {
+	for (var i = 0; i < len; i++) {
 		var rule = {
+			priority: len - i,
 			id: 'local' + i,
 			conditions: new Array(1),
 			actions: []
@@ -49,14 +51,16 @@ chrome.runtime.onInstalled.addListener(function() {
 				stages: ['onBeforeRequest']
 			})
 
-			rule.actions[0] = new chrome.declarativeWebRequest.RedirectByRegEx({
+			rule.actions.push(new chrome.declarativeWebRequest.RedirectByRegEx({
 				from: '[^\d]*((([0-9]){1,2}.){1,3}[0-9]{1,2})[^\d]*',
 				to: url + dest.replace(regex1, '\$2\$3\$1')
-			})
-			/*rule.actions[1] = new chrome.declarativeWebRequest.SendMessageToExtension({
-				message: 'https://' + source.replace(regex1, '1.11.3') + 'min.js' +
-					url + dest.replace(regex1, '\$1')
-			})*/
+			}))
+			rule.actions.push(new chrome.declarativeWebRequest.IgnoreRules({
+				lowerPriorityThan: rule.priority
+			}))
+			/*rule.actions.push(new chrome.declarativeWebRequest.SendMessageToExtension({
+				message: sourceSplit + ' ' + url + dest.replace(regex1, '\$2\$3\$1')
+			}))*/
 		} else {
 			rule.conditions[0] = new chrome.declarativeWebRequest.RequestMatcher({
 				url: { urlContains: source },
@@ -64,12 +68,12 @@ chrome.runtime.onInstalled.addListener(function() {
 				stages: ['onBeforeRequest']
 			})
 
-			rule.actions[0] = new chrome.declarativeWebRequest.RedirectRequest({
+			rule.actions.push(new chrome.declarativeWebRequest.RedirectRequest({
 				redirectUrl: url + dest
-			})
-			/*rule.actions[1] = new chrome.declarativeWebRequest.SendMessageToExtension({
+			}))
+			/*rule.actions.push(new chrome.declarativeWebRequest.SendMessageToExtension({
 				message: source
-			})*/
+			}))*/
 		}
 
 		rules[i] = rule
