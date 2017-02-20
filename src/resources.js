@@ -7,7 +7,7 @@ var resources = {
 			'dojo/vrsn/dojo/dojo.': 'dojo/vrsn/dojo/dojo.js.dec',
 			'ext-core/vrsn/ext-core.': 'ext-core/vrsn/ext-core.js.dec',
 			'ext-core/vrsn/ext-core-debug.': 'ext-core/vrsn/ext-core.js.dec',
-			'jquery/vrsn/jquery.': 'jquery/vrsn/jquery.min.js.dec',
+			'jquery/vrsn/jquery.': 'jquery/3.1.1/jquery.min.js.dec',
 			'jqueryui/vrsn/jquery-ui.js': 'jqueryui/vrsn/jquery-ui.min.js.dec',
 			'jqueryui/vrsn/jquery-ui.min.js': 'jqueryui/vrsn/jquery-ui.min.js.dec',
 			'mootools/vrsn/mootools-yui-compressed.': 'mootools/vrsn/mootools-yui-compressed.js.dec',
@@ -16,7 +16,7 @@ var resources = {
 			'swfobject/vrsn/swfobject.': 'swfobject/vrsn/swfobject.js.dec',
 			'webfont/vrsn/webfont.': 'webfont/vrsn/webfont.js.dec',
 			'dojo/1/dojo/dojo.': 'dojo/1.6.1/dojo/dojo.js.dec',
-			'jquery/1/jquery.': 'jquery/1.11.1/jquery.min.js.dec',
+			'jquery/1/jquery.': 'jquery/3.1.1/jquery.min.js.dec',
 			'jquery/1.2/jquery.min.js': 'jquery/1.2.6/jquery.min.js.dec',
 			'jquery/1.2/jquery.js': 'jquery/1.2.6/jquery.min.js.dec',
 			'jquery/1.3/jquery.min.js': 'jquery/1.3.2/jquery.min.js.dec',
@@ -42,15 +42,15 @@ var resources = {
 	},
 	'ajax.aspnetcdn.com': {
 		'/ajax/': {
-			'jQuery/jquery-vrsn.': 'jquery/vrsn/jquery.min.js.dec',
-			'jquery/jquery-vrsn.': 'jquery/vrsn/jquery.min.js.dec',
+			'jQuery/jquery-vrsn.': 'jquery/3.1.1/jquery.min.js.dec',
+			'jquery/jquery-vrsn.': 'jquery/3.1.1/jquery.min.js.dec',
 			'modernizr/modernizr-vrsn.': 'modernizr/vrsn/modernizr.min.js.dec'
 		}
 	},
 	'ajax.microsoft.com': {
 		'/ajax/': {
-			'jQuery/jquery-vrsn.': 'jquery/vrsn/jquery.min.js.dec',
-			'jquery/jquery-vrsn.': 'jquery/vrsn/jquery.min.js.dec',
+			'jQuery/jquery-vrsn.': 'jquery/3.1.1/jquery.min.js.dec',
+			'jquery/jquery-vrsn.': 'jquery/3.1.1/jquery.min.js.dec',
 			'modernizr/modernizr-vrsn.': 'modernizr/vrsn/modernizr.min.js.dec'
 		}
 	},
@@ -62,7 +62,7 @@ var resources = {
 			'dojo/vrsn/dojo.': 'dojo/vrsn/dojo/dojo.js.dec',
 			'ember.js/vrsn/ember.': 'ember.js/vrsn/ember.min.js.dec',
 			'ext-core/vrsn/ext-core.': 'ext-core/vrsn/ext-core.js.dec',
-			'jquery/vrsn/jquery.': 'jquery/vrsn/jquery.min.js.dec',
+			'jquery/vrsn/jquery.': 'jquery/3.1.1/jquery.min.js.dec',
 			'jqueryui/vrsn/jquery-ui.js': 'jqueryui/vrsn/jquery-ui.min.js.dec',
 			'jqueryui/vrsn/jquery-ui.min.js': 'jqueryui/vrsn/jquery-ui.min.js.dec',
 			'modernizr/vrsn/modernizr.': 'modernizr/vrsn/modernizr.min.js.dec',
@@ -76,11 +76,11 @@ var resources = {
 	},
 	'code.jquery.com': {
 		'/': {
-			'jquery-vrsn.': 'jquery/vrsn/jquery.min.js.dec',
+			'jquery-vrsn.': 'jquery/3.1.1/jquery.min.js.dec',
 			'ui/vrsn/jquery-ui.js': 'jqueryui/vrsn/jquery-ui.min.js.dec',
 			'ui/vrsn/jquery-ui.min.js': 'jqueryui/vrsn/jquery-ui.min.js.dec',
-			'jquery-latest.': 'jquery/1.11.1/jquery.min.js.dec',
-			'jquery.': 'jquery/1.11.1/jquery.min.js.dec',
+			'jquery-latest.': 'jquery/3.1.1/jquery.min.js.dec',
+			'jquery.': 'jquery/3.1.1/jquery.min.js.dec',
 			'jquery-1.3.min.js': 'jquery/1.3.0/jquery.min.js.dec',
 			'jquery-1.3.js': 'jquery/1.3.0/jquery.min.js.dec',
 			'jquery-1.4.min.js': 'jquery/1.4.0/jquery.min.js.dec',
@@ -100,7 +100,7 @@ var resources = {
 			'backbonejs/vrsn/backbone-min.': 'backbone.js/vrsn/backbone-min.js.dec',
 			'dojo/vrsn/dojo.': 'dojo/vrsn/dojo/dojo.js.dec',
 			'emberjs/vrsn/ember.': 'ember.js/vrsn/ember.min.js.dec',
-			'jquery/vrsn/jquery.': 'jquery/vrsn/jquery.min.js.dec',
+			'jquery/vrsn/jquery.': 'jquery/3.1.1/jquery.min.js.dec',
 			'jquery.ui/vrsn/jquery-ui.js': 'jqueryui/vrsn/jquery-ui.min.js.dec',
 			'jquery.ui/vrsn/jquery-ui.min.js': 'jqueryui/vrsn/jquery-ui.min.js.dec',
 			'mootools/vrsn/mootools-': 'mootools/vrsn/mootools-yui-compressed.js.dec',
@@ -117,7 +117,7 @@ var resources = {
 			'backbone/vrsn/backbone-min.': 'backbone.js/vrsn/backbone-min.js.dec',
 			'dojo/vrsn/dojo/dojo.': 'dojo/vrsn/dojo/dojo.js.dec',
 			'ext-core/vrsn/ext-core.': 'ext-core/vrsn/ext-core.js.dec',
-			'jquery/vrsn/jquery.': 'jquery/vrsn/jquery.min.js.dec',
+			'jquery/vrsn/jquery.': 'jquery/3.1.1/jquery.min.js.dec',
 			'jquery-ui/vrsn/jquery-ui.js': 'jqueryui/vrsn/jquery-ui.min.js.dec',
 			'jquery-ui/vrsn/jquery-ui.min.js': 'jqueryui/vrsn/jquery-ui.min.js.dec',
 			'modernizr/vrsn/modernizr.': 'modernizr/vrsn/modernizr.min.js.dec',
@@ -135,7 +135,7 @@ var resources = {
 			'backbone/vrsn/backbone-min.': 'backbone.js/vrsn/backbone-min.js.dec',
 			'dojo/vrsn/dojo/dojo.': 'dojo/vrsn/dojo/dojo.js.dec',
 			'ext-core/vrsn/ext-core.': 'ext-core/vrsn/ext-core.js.dec',
-			'jquery/vrsn/jquery.': 'jquery/vrsn/jquery.min.js.dec',
+			'jquery/vrsn/jquery.': 'jquery/3.1.1/jquery.min.js.dec',
 			'jquery-ui/vrsn/jquery-ui.js': 'jqueryui/vrsn/jquery-ui.min.js.dec',
 			'jquery-ui/vrsn/jquery-ui.min.js': 'jqueryui/vrsn/jquery-ui.min.js.dec',
 			'modernizr/vrsn/modernizr.': 'modernizr/vrsn/modernizr.min.js.dec',
@@ -152,7 +152,7 @@ var resources = {
 			'backbone/vrsn/backbone-min.': 'backbone.js/vrsn/backbone-min.js.dec',
 			'dojo/vrsn/dojo.': 'dojo/vrsn/dojo/dojo.js.dec',
 			'ext-core/vrsn/ext-core.': 'ext-core/vrsn/ext-core.js.dec',
-			'jquery/vrsn/jquery.': 'jquery/vrsn/jquery.min.js.dec',
+			'jquery/vrsn/jquery.': 'jquery/3.1.1/jquery.min.js.dec',
 			'jqueryui/vrsn/jquery-ui.js': 'jqueryui/vrsn/jquery-ui.min.js.dec',
 			'jqueryui/vrsn/jquery-ui.min.js': 'jqueryui/vrsn/jquery-ui.min.js.dec',
 			'mootools/vrsn/mootools-yui-compressed.': 'mootools/vrsn/mootools-yui-compressed.js.dec',
@@ -172,7 +172,7 @@ var resources = {
 			'dojo/vrsn/dojo.': 'dojo/vrsn/dojo/dojo.js.dec',
 			'ext-core/vrsn/ext-core.': 'ext-core/vrsn/ext-core.js.dec',
 			'ext-core/vrsn/ext-core-debug.': 'ext-core/vrsn/ext-core.js.dec',
-			'jquery/vrsn/jquery.': 'jquery/vrsn/jquery.min.js.dec',
+			'jquery/vrsn/jquery.': 'jquery/3.1.1/jquery.min.js.dec',
 			'jquery-ui/vrsn/jquery-ui.js': 'jqueryui/vrsn/jquery-ui.min.js.dec',
 			'jquery-ui/vrsn/jquery-ui.min.js': 'jqueryui/vrsn/jquery-ui.min.js.dec',
 			'mootools/vrsn/mootools.': 'mootools/vrsn/mootools-yui-compressed.js.dec',
@@ -189,7 +189,7 @@ var resources = {
 		'/libs/': {
 			'dojo/dojo-vrsn.': 'dojo/vrsn/dojo/dojo.js.dec',
 			'emberjs/emberjs-vrsn.': 'ember.js/vrsn/ember.min.js.dec',
-			'jquery/jquery-vrsn.': 'jquery/vrsn/jquery.min.js.dec',
+			'jquery/jquery-vrsn.': 'jquery/3.1.1/jquery.min.js.dec',
 			'jqueryui/jquery.ui-vrsn.js': 'jqueryui/vrsn/jquery-ui.min.js.dec',
 			'jqueryui/jquery.ui-vrsn.min.js': 'jqueryui/vrsn/jquery-ui.min.js.dec',
 			'modernizr/modernizr-vrsn.': 'modernizr/vrsn/modernizr.min.js.dec',
@@ -198,8 +198,8 @@ var resources = {
 	},
 	'cdn.bootcss.com': {
 		'/': {
-			'jquery/vrsn/jquery.js': 'jquery/vrsn/jquery.min.js.dec',
-			'jquery/vrsn/jquery.min.js': 'jquery/vrsn/jquery.min.js.dec',
+			'jquery/vrsn/jquery.js': 'jquery/3.1.1/jquery.min.js.dec',
+			'jquery/vrsn/jquery.min.js': 'jquery/3.1.1/jquery.min.js.dec',
 			'jqueryui/vrsn/jquery-ui.js': 'jqueryui/vrsn/jquery-ui.min.js.dec',
 			'jqueryui/vrsn/jquery-ui.min.js': 'jqueryui/vrsn/jquery-ui.min.js.dec',
 			'backbone.js/vrsn/backbone-min.js': 'backbone.js/vrsn/backbone-min.js.dec',
@@ -223,8 +223,8 @@ var resources = {
 	},
 	'cdn.css.net': {
 		'/libs/': {
-			'jquery/vrsn/jquery.js': 'jquery/vrsn/jquery.min.js.dec',
-			'jquery/vrsn/jquery.min.js': 'jquery/vrsn/jquery.min.js.dec',
+			'jquery/vrsn/jquery.js': 'jquery/3.1.1/jquery.min.js.dec',
+			'jquery/vrsn/jquery.min.js': 'jquery/3.1.1/jquery.min.js.dec',
 			'jqueryui/vrsn/jquery-ui.js': 'jqueryui/vrsn/jquery-ui.min.js.dec',
 			'jqueryui/vrsn/jquery-ui.min.js': 'jqueryui/vrsn/jquery-ui.min.js.dec',
 			'backbone.js/vrsn/backbone.js': 'backbone.js/vrsn/backbone-min.js.dec',
@@ -248,9 +248,12 @@ var resources = {
 	},
 	'cdn.staticfile.org': {
 		'/': {
-			'jquery/vrsn/jquery.js': 'jquery/vrsn/jquery.min.js.dec',
-			'jquery/vrsn/jquery.min.js': 'jquery/vrsn/jquery.min.js.dec',
+			'jquery/vrsn/jquery.js': 'jquery/3.1.1/jquery.min.js.dec',
+			'jquery/vrsn/jquery.min.js': 'jquery/3.1.1/jquery.min.js.dec',
 			'angularjs/vrsn/angular.': 'angularjs/vrsn/angular.min.js.dec'
 		}
-	}
+	},
+
+	'jquery.min.js': 'jquery/3.1.1/jquery.min.js.dec',
+	'jquery.js': 'jquery/3.1.1/jquery.min.js.dec'
 }
